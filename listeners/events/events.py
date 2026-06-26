@@ -52,54 +52,54 @@ def streakDashboard(client: WebClient, event: dict, logger: Logger):
                     "text": {
                         "type": "mrkdwn",
                         "text": f"*{streakName}*\nStreak: `{currentStreak} days` \n Status: {status}"
-                    },
-                    "accessory": {
-                        "type": "actions",
-                        "elements": [
-                            {
-                                "type": "button",
-                                "text": {
-                                    "type": "plain_text",
-                                    "text": "Mark Streak As Completed"
-                                },
-                                "value": str(id),
-                                "style": "primary",
-                                "action_id": "completeStreak" #Add the method for the button click future me
-                            },
-                            {
-                                "type": "button",
-                                "text": {
-                                    "type": "plain_text",
-                                    "text": "Delete Streak"
-                                },
-                                "value": str(id),
-                                "style": "primary",
-                                "action_id": "deleteStreak" #Add the method for the button click future me
-                            }
-                        ]
                     }
                 })
-            blocks.append({
-                "type": "actions",
-                "elements": [{
-                        "type": "button",
-                        "style": "primary",
-                        "action_id": "createStreak",
-                        "text":{
-                            "type": "plain_text",
-                            "text": "Create New Streak"
+                blocks.append({
+                    "type": "actions",
+                    "elements": [
+                        {
+                            "type": "button",
+                            "text": {
+                                "type": "plain_text",
+                                "text": "Mark Streak As Completed"
+                            },
+                            "value": str(id),
+                            "style": "primary",
+                            "action_id": "createStreak" #Add the method for the button click future me
+                        },
+                        {
+                            "type": "button",
+                            "text": {
+                                "type": "plain_text",
+                                "text": "Delete Streak"
+                            },
+                            "value": str(id),
+                            "style": "primary",
+                            "action_id": "deleteStreak" #Add the method for the button click future me
                         }
+                    ]
+                })
+        blocks.append({
+            "type": "actions",
+            "elements": [{
+                    "type": "button",
+                    "style": "primary",
+                    "action_id": "createStreak",
+                    "text":{
+                        "type": "plain_text",
+                        "text": "Create New Streak"
                     }
-                ]
-            })
-
-            client.views_publish(
-                userID = userID,
-                view={
-                    "type": "home",
-                    "blocks": blocks
                 }
-            )
+            ]
+        })
+
+        client.views_publish(
+            user_id = userID,
+            view={
+                "type": "home",
+                "blocks": blocks
+            }
+        )
         
     except Exception as e:
         logger.error(f"Error publishing home tab: {e}")

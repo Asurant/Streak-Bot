@@ -7,10 +7,10 @@ from .views.views import addStreak
 from .events.events import streakDashboard
 
 def register_listeners(app):
-    app.command("/streak")(streakCommand)
+    app.command("/streakbot-streaks")(streakCommand)
     app.action("createStreak")(createStreak)
-    app.action(completeStreak)(completeStreak)
-    app.action(deleteStreak)(deleteStreak)
-    app.view(addStreak)(addStreak)
-    app.event(streakDashboard)(streakDashboard)
+    app.action("completeStreak")(completeStreak)
+    app.action("deleteStreak")(deleteStreak)
+    app.view("createStreak")(addStreak)
+    app.event("app_home_opened")(streakDashboard)
 

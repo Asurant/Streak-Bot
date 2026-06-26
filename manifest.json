@@ -9,8 +9,8 @@
   "features": {
     "app_home": {
       "home_tab_enabled": true,
-      "messages_tab_enabled": false,
-      "messages_tab_read_only_enabled": true
+      "messages_tab_enabled": true,
+      "messages_tab_read_only_enabled": false
     },
     "bot_user": {
       "display_name": "Streak Bot",
@@ -26,9 +26,9 @@
     ],
     "slash_commands": [
       {
-        "command": "/streak",
-        "description": "Lists out all the streaks you currently have",
-        "usage-hint": "List Active Streaks",
+        "command": "/streakbot-streaks",
+        "description": "Lists out all of the streaks you currently have",
+        "usage-hint": "List Out Active Streaks",
         "should_escape": false
       }
     ]
@@ -39,7 +39,8 @@
         "channels:history",
         "chat:write",
         "commands",
-        "im:write"
+        "im:write",
+        "im:history"
       ]
     }
   },

@@ -3,4 +3,4 @@ from .commands import streakCommand
 
 
 def register(app: App):
-    app.command("/streak")(streakCommand)
+    app.command("/streakbot-streaks")(streakCommand)

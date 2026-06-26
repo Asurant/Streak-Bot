@@ -7,7 +7,7 @@ from slack_sdk import WebClient
 def streakCommand(command, ack: Ack, respond: Respond, logger: Logger, client: WebClient):
     try:
         ack()
-        userID = command["user"]
+        userID = command["user_id"]
         conn = sqlite3.connect("streaks.db")
         cursor = conn.cursor()
         cursor.execute(
