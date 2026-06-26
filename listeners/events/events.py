@@ -65,7 +65,7 @@ def streakDashboard(client: WebClient, event: dict, logger: Logger):
                             },
                             "value": str(id),
                             "style": "primary",
-                            "action_id": "createStreak" #Add the method for the button click future me
+                            "action_id": "completeStreak" #Add the method for the button click future me
                         },
                         {
                             "type": "button",
