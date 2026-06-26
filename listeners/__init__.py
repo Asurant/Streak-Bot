@@ -1,10 +1,10 @@
 
-from .commands import streakCommand
-from .actions import createStreak
-from .actions import completeStreak
-from .actions import deleteStreak
-from .views import addStreak
-from .events import streakDashboard
+from .commands.commands import streakCommand
+from .actions.actions import createStreak
+from .actions.actions import completeStreak
+from .actions.actions import deleteStreak
+from .views.views import addStreak
+from .events.events import streakDashboard
 
 def register_listeners(app):
     app.command("/streak")(streakCommand)

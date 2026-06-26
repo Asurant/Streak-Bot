@@ -14,7 +14,7 @@ def streakDashboard(client: WebClient, event: dict, logger: Logger):
         cursor = conn.cursor()
         cursor.execute(
             "SELECT id, streakName, currentStreak, lastCompletedDate from streaks WHERE userID = ?",
-            (userID)
+            (userID,)
         )
         streaks = cursor.fetchall()
         conn.close()
@@ -45,7 +45,7 @@ def streakDashboard(client: WebClient, event: dict, logger: Logger):
                 else:
                     status = "Not Completed"
                 blocks.append({
-                    {"type": "divider"}
+                    "type": "divider"
                 })
                 blocks.append({
                     "type": "section",

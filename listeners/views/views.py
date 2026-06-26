@@ -7,7 +7,7 @@ import database
 def addStreak(view, ack: Ack, body: dict, client: WebClient, logger: Logger):
     try:
         ack()
-        streakName = view["inputBlock"]["streakName"]["value"]
+        streakName = view["state"]["values"]["inputBlock"]["streakName"]["value"]
         userID = body["user"]["id"]
         database.addStreak(userID, streakName)
     except Exception as e:

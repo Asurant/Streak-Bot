@@ -25,7 +25,7 @@ def addStreak(userID, streakName):
     cursor = conn.cursor()
     cursor.execute(
         "INSERT INTO streaks (userID, streakNAME) VALUES (?, ?)",
-        (userID, streakName)
+        (userID, streakName,)
     )
     conn.commit()
     conn.close()
@@ -35,7 +35,7 @@ def deleteStreak(id):
     cursor = conn.cursor()
     cursor.execute(
         "DELETE FROM streaks WHERE id = ?",
-        (id)
+        (id,)
     )
     conn.commit()
     conn.close()
@@ -45,7 +45,7 @@ def getStreaks(userID):
     cursor = conn.cursor()
     cursor.execute(
         "SELECT id, streakName, currentStreak, lastCompletedDate FROM streaks WHERE userID = ?",
-        (userID)
+        (userID,)
     )
     rows = cursor.fetchall()
     conn.close()
@@ -56,7 +56,7 @@ def completeStreak(id):
     cursor = conn.cursor()
     todayDate = str(date.today())
     cursor.execute("SELECT currentStreak, lastCompletedDate FROM streaks where id = ?",
-        (id)
+        (id,)
     )
     streak = cursor.fetchone()
     if streak:

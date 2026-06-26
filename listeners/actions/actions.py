@@ -45,7 +45,7 @@ def completeStreak(ack: Ack, body: dict, client: WebClient, logger: Logger):
     try:
         ack()
         id = int(body["actions"][0]["value"])
-        database.completeStreak(id, str(date.today()))
+        database.completeStreak(id)
     except Exception as e:
         logger.error(e)
 

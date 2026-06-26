@@ -12,7 +12,7 @@ def streakCommand(command, ack: Ack, respond: Respond, logger: Logger, client: W
         cursor = conn.cursor()
         cursor.execute(
             "SELECT id, streakName, currentStreak, lastCompletedDate from streaks WHERE userID = ?",
-            (userID)
+            (userID,)
         )
         streaks = cursor.fetchall()
         conn.close()
@@ -43,7 +43,7 @@ def streakCommand(command, ack: Ack, respond: Respond, logger: Logger, client: W
                 else:
                     status = "Not Completed"
                 blocks.append({
-                    {"type": "divider"}
+                    "type": "divider"
                 })
                 blocks.append({
                     "type": "section",
